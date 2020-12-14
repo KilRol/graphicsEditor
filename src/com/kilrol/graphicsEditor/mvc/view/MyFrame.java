@@ -45,6 +45,14 @@ public class MyFrame extends JFrame {
         Action redoAction = new SwitchRedo("Повторить",new ImageIcon("Icons/redo.png"),undoMachine);
         Action chooseColorAction = new SwitchState("Палитра", new ImageIcon("Icons/palette.png"),
                 new SwitchColor(state));
+        Action thickness1Action = new SwitchState("Толщина 1",new ImageIcon("Icons/line.png"),
+                new SwitchThickness(state, MyShape.Thickness.THICKNESS_1));
+        Action thickness3Action = new SwitchState("Толщина 3",new ImageIcon("Icons/line3.png"),
+                new SwitchThickness(state, MyShape.Thickness.THICKNESS_3));
+        Action thickness5Action = new SwitchState("Толщина 5",new ImageIcon("Icons/line5.png"),
+                new SwitchThickness(state, MyShape.Thickness.THICKNESS_5));
+        Action thickness7Action = new SwitchState("Толщина 7",new ImageIcon("Icons/line7.png"),
+                new SwitchThickness(state, MyShape.Thickness.THICKNESS_7));
 
         JMenuBar bar;
         bar = new JMenuBar();
@@ -85,6 +93,11 @@ public class MyFrame extends JFrame {
         undoRedoMenu.add(redoAction);
         JMenu chooseColorMenu = new JMenu("Выбор цвета");
         chooseColorMenu.add(chooseColorAction);
+        JMenu chooseThicknessMenu = new JMenu("Толщина линии");
+        chooseThicknessMenu.add(thickness1Action);
+        chooseThicknessMenu.add(thickness3Action);
+        chooseThicknessMenu.add(thickness5Action);
+        chooseThicknessMenu.add(thickness7Action);
 
         ArrayList<JMenu> menus = new ArrayList<>();
         menus.add(fileMenu);
@@ -93,6 +106,7 @@ public class MyFrame extends JFrame {
         menus.add(modeMenu);
         menus.add(undoRedoMenu);
         menus.add(chooseColorMenu);
+        menus.add(chooseThicknessMenu);
 
         for (JMenu m : menus) {
             bar.add(m);

@@ -13,6 +13,7 @@ public class State {
     MyShape shape;
     Color color;
     MyShape.FillBehavior fb;
+    MyShape.Thickness thickness;
     FigureShape rectangularShape;
     Activity activity;
 
@@ -43,6 +44,12 @@ public class State {
     public void setFb(MyShape.FillBehavior fb) {
         this.fb = fb;
         shape.setFb(fb);
+        model.setSampleShape(shape);
+    }
+
+    public void setThickness(MyShape.Thickness thickness) {
+        this.thickness = thickness;
+        shape.setThickness(thickness);
         model.setSampleShape(shape);
     }
 

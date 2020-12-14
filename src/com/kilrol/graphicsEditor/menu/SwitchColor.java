@@ -8,7 +8,6 @@ import java.awt.*;
 public class SwitchColor implements Command {
     State state;
 
-
     public SwitchColor(State state) {
         this.state = state;
     }
@@ -17,7 +16,5 @@ public class SwitchColor implements Command {
     public void execute() {
         Color c = JColorChooser.showDialog(null, "choose color", Color.BLACK);
         state.setColor(c);
-
-
     }
 }

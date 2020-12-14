@@ -11,23 +11,27 @@ public class MyShape implements Serializable {
     Color color;
     FigureShape shape;
     FillBehavior fb;
+    Thickness thickness;
 
     public MyShape(FigureShape shape) {
         this.shape = shape;
         color = Color.BLUE;
         fb = FillBehavior.NO_FILL;
+        thickness = Thickness.THICKNESS_1;
     }
 
     public MyShape() {
         color = Color.BLUE;
         shape = new Rectangle();
-        fb =  FillBehavior.NO_FILL;;
+        fb =  FillBehavior.NO_FILL;
+        thickness = Thickness.THICKNESS_1;
     }
 
-    public MyShape(Color color, FigureShape shape, FillBehavior fb) {
+    public MyShape(Color color, FigureShape shape, FillBehavior fb, Thickness thickness) {
         this.color = color;
         this.shape = shape;
         this.fb = fb;
+        this.thickness = thickness;
     }
 
     public void setFb(FillBehavior fb) {
@@ -42,7 +46,12 @@ public class MyShape implements Serializable {
         shape.setFrameFromDiagonal(pd[0], pd[1]);
     }
 
+    public void setThickness(Thickness thickness) {
+        this.thickness = thickness;
+    }
+
     void draw(Graphics2D g) {
+        thickness.draw(g);
         fb.draw(g,color,shape);
     }
 
@@ -63,6 +72,7 @@ public class MyShape implements Serializable {
         s.setColor(color);
         s.setShape(s1);
         s.fb = this.fb;
+        s.thickness = this.thickness;
         return s;
     }
 
@@ -93,6 +103,43 @@ public class MyShape implements Serializable {
             }
         };
         public abstract void  draw(Graphics2D g, Color c, FigureShape sh);
+    }
+
+    public enum Thickness implements Serializable {
+
+        THICKNESS_1 {
+            @Override
+            public void draw(Graphics2D g) {
+                Paint paint = g.getPaint();
+                g.setStroke(new BasicStroke(1));
+            }
+        },
+
+        THICKNESS_3 {
+            @Override
+            public void draw(Graphics2D g) {
+                Paint paint = g.getPaint();
+                g.setStroke(new BasicStroke(3));
+            }
+        },
+
+        THICKNESS_5 {
+            @Override
+            public void draw(Graphics2D g) {
+                Paint paint = g.getPaint();
+                g.setStroke(new BasicStroke(5));
+            }
+        },
+
+        THICKNESS_7 {
+            @Override
+            public void draw(Graphics2D g) {
+                Paint paint = g.getPaint();
+                g.setStroke(new BasicStroke(7));
+            }
+        };
+
+        public abstract void draw(Graphics2D g);
     }
 
 }
