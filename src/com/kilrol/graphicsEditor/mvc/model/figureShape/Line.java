@@ -31,7 +31,7 @@ public class Line extends Line2D.Double implements FigureShape {
     }
 
     @Override
-    public void setFrameFromDiagonal(Point2D point2D, Point2D point2D1) {
-        setLine(point2D, point2D1);
+    public void setFrameFromDiagonal(Point2D p1, Point2D p2) {
+        setLine(p1, p2);
     }
 }
