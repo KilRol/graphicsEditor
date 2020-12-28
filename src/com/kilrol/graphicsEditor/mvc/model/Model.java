@@ -14,12 +14,20 @@ public class Model extends Observable {
     MyShape currentShape = null;
     MyShape sampleShape;
     ArrayList<MyShape> list;
+    public static Model model;
+
+    public static synchronized Model getInstance() {
+        if (model == null) {
+            model = new Model();
+        }
+        return model;
+    }
 
     public void setSampleShape(MyShape sampleShape) {
         this.sampleShape = sampleShape;
     }
 
-    public Model() {
+    private Model() {
         list = new ArrayList<>();
     }
 
