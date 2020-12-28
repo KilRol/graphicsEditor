@@ -5,6 +5,17 @@ import java.awt.geom.Point2D;
 
 public class Line extends Line2D.Double implements FigureShape {
 
+    public Line() {
+    }
+
+    public Line(Point2D p1, Point2D p2) {
+        super(p1,p2);
+    }
+
+    public Line(double x1, double y1, double x2, double y2) {
+        super(x1, y1, x2, y2);
+    }
+
     @Override
     public double getMinX() {
         return getX1();
@@ -15,14 +26,22 @@ public class Line extends Line2D.Double implements FigureShape {
         return getY1();
     }
 
+    public double getWidth() {
+        return getX2() - getX1();
+    }
+
+    public double getHeight() {
+        return getY2() - getY1();
+    }
+
     @Override
     public double getMaxX() {
-        return getX2();
+        return getX1() + getWidth();
     }
 
     @Override
     public double getMaxY() {
-        return getY2();
+        return getY1() + getHeight();
     }
 
     @Override

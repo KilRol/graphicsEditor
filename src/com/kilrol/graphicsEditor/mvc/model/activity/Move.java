@@ -20,7 +20,6 @@ public class Move implements Activity{
         p = new Point2D[2];
     }
 
-
     @Override
     public void getPointOne(Point2D p1){
         p[0] = p1;

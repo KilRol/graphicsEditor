@@ -18,7 +18,7 @@ public class MyPanel extends JPanel implements Observer {
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent arg0){
-                controller.getPointOne( arg0.getPoint());
+                controller.getPointOne(arg0.getPoint());
             }
         });
         addMouseMotionListener(new MouseMotionAdapter() {

@@ -59,7 +59,6 @@ public class Model extends Observable {
                     currentShape = s;
                     return currentShape;
                 }
-                ;
             }
         }
         return null;
